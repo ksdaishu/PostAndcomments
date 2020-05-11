@@ -1,5 +1,14 @@
 @import "bootstrap";
 
+//Flash msg
+div.alert-alert {
+  background-color: #FAA;
+}
+
+div.alert-notice {
+  background-color: #ACF;
+}
+
 div.right-hand {
   float: right;
 }
