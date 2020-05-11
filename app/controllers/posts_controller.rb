@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if !(user = params[:user_id]&.to_i)
-      @posts = current_user.feed.paginate(page: params[:page])
+      @posts = current_user.feed.paginate(page: params[:page],per_page: 8)
     elsif (user == current_user.id)
       @posts = Post.where(user_id: user)   
     end
