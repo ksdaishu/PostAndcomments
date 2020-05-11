@@ -3,7 +3,12 @@ class ApplicationController < ActionController::Base
   include DeviseWhitelist
 
 
-  def show_post( new_comment = Comment.new(author: current_user))
+  def show_post( new_comment = Comment.new(user: current_user))
+
+  	author = @post.user
+  	@comments = @post.comments.order(:created_at).paginate(page: params[:page]).per_page(10)
+    @new_comment = new_comment
+
     render 'posts/show'
   end
 

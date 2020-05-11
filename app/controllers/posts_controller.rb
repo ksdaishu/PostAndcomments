@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    show_post
   end
 
   # GET /posts/new
@@ -42,25 +43,18 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+     if @post.update(post_params)
+        redirect_to @post, notice: 'Post was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
@@ -71,6 +65,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:user_id, :body)
+      params.fetch(:post, {}).permit(:user_id,:body)
     end
 end
