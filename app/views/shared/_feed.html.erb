@@ -1,0 +1,27 @@
+
+<%= will_paginate(feed_objects, inner_window: 2, outer_window:0) %>
+<% if feed_objects.nil? %>
+  Please make some friends or post some text or pics to see more!
+<% else %>
+  <% feed_objects.each do |obj| %>
+    <div class="post-preview">
+      <div class="row">
+        <div class="col-md-2">
+            
+            <small><%= obj.user.name %></small>
+          
+        </div>
+        
+        <div class="offset-md-1 col-md-9">
+          <% if obj.class == Post %>
+            <%= obj.preview %><br>
+            <%= link_to obj do %>
+              more
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<%= will_paginate(feed_objects, inner_window: 1, outer_window:0) %>

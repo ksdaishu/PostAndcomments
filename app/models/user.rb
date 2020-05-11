@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
+  has_many :posts, foreign_key: 'user_id', dependent: :nullify
+
   validates_length_of :name, minimum: 5, maximum: 30, allow_blank: false
 
   def member_since
@@ -21,6 +23,10 @@ class User < ApplicationRecord
     else
       updated_at.strftime("#{updated_at.day.ordinalize} %b %Y")
     end
+  end
+
+  def feed
+    Post.all.order(created_at: :desc)
   end
 
 end
