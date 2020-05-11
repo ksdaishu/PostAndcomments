@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable
 
-  has_many :posts, foreign_key: 'user_id', dependent: :nullify
+  has_many :posts
+  has_many :comments
 
   validates_length_of :name, minimum: 5, maximum: 30, allow_blank: false
 
