@@ -18,6 +18,13 @@
 //= require turbolinks
 //= require_tree .
 
-$(".alert-success" ).fadeOut(3000);
-$(".alert-success" ).fadeOut(3000);
-$(".alert-danger" ).fadeOut(3000);
+$(function(){
+   var flashDurationInSeconds = 3;
+   var flashContainerId = 'flash-messages';
+
+   function removeFlashMessages() {
+     $('#' + flashContainerId).remove();
+   }
+
+   setTimeout(removeFlashMessages, flashDurationInSeconds * 1000);
+})
