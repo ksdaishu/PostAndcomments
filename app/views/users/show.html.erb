@@ -1,36 +1,40 @@
 <% provide(:title,@user.name) %>
+<div class="container">
 
-<h1><%= @user.name %></h1>
-
-<div class="row">
-  <div class="col-md-6">
-    Name:
-    <div class="right-hand">
-      <%= @user.name %>
-    </div><br>
-    <div class="cleared">
+  <div class="row">
+      <div class="box box-header header-title col-xs-12">
+        <header>
+          <h2>About</h2>
+            <%= link_to "Edit Profile", edit_user_registration_path(current_user),
+                class: "btn btn-small btn-primary right btncolor" %>
+        </header>
+      </div>
     </div>
-    Email:
-    <div class="right-hand">
-      <%= @user.email %>
-    </div><br>
 
-    <div class="cleared">
-    </div>
-    Member since:
-    <div class="right-hand">
-      <%= @user.member_since %>
-    </div><br>
-    <div class="cleared">
-    </div>
-    Last Activity:
-    <div class="right-hand">
-     <%= @user.last_activity %>
-    </div><br>
+    <div class="row">      
+      <section class="box box-body padding-top padding-bottom col-xs-12">
+      
+        <div class="col-md-5">        
+          
+          <h3>User Information</h3>
+          
+          <dl>
+            <dt>Email:</dt>
+            <dd><%= @user.email %></dd>
+            <dt>Name:</dt>
+            <dd><%= @user.name %></dd>
+            <dt>Member since:</dt>
+            <dd><%= @user.member_since %></dd>
+            <dt>Last Activity:</dt>
+            <dd><%= @user.last_activity %></dd>
+            
+          </dl>
+        
+        </div>
 
-    <%= link_to 'Edit Profile', edit_user_registration_path(current_user) %>   
 
-  </div>
+      </section>
+      
 </div>
- 
 </div>
+
