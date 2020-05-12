@@ -1,9 +1,9 @@
 
 <% provide(:title,'Login') %>
-
+<div class = "">
 <div class="row">
   <div class="col-md-4 offset-md-4">
-    
+    <div class = "formouter">
       <h2>Log in</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -29,9 +29,9 @@
         </div>
       <% end %>
 
-      <div class="auth-links">
+      <div>
         <%= render "devise/shared/links" %>
       </div>
-    
+    </div>
   </div>
 </div>

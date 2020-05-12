@@ -17,3 +17,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(".alert-success" ).fadeOut(3000);
+$(".alert-success" ).fadeOut(3000);
+$(".alert-danger" ).fadeOut(3000);
