@@ -6,7 +6,7 @@ class Post < ApplicationRecord
     belongs_to :user
     has_many :comments , dependent: :destroy
 
-	def preview (letters: 40)
+	def preview (letters: 200)
     	body.size > letters ? body[0...letters] + "..." : body
     end
 

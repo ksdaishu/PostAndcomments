@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
       if @post.save
-        redirect_to @post, notice: 'Post was successfully created.'
+        redirect_to posts_url, notice: 'Post was created successfully.'
       else
         render :new
       end
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
      if @post.update(post_params)
-        redirect_to @post, notice: 'Post was successfully updated.'
+        redirect_to posts_url, notice: 'Post was successfully updated.'
       else
         render :edit
       end

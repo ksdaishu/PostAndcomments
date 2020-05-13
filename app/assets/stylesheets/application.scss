@@ -134,3 +134,47 @@ dd {
 .padding-bottom {
   padding-bottom: 15px;
 }
+
+.post {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.post-index-name {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+
+.post-index-text { color: inherit; }
+
+.post-index-text:hover { text-decoration: none; }
+
+.right-link,
+.right-text {
+  float: right;
+  font-size: 15px;
+  padding: 4px 10px;
+  color: #0099cc;
+}
+
+.createdforntsize
+{
+  font-size: 12px;
+  color:brown
+}
+
+.inlineblock
+{
+  display: inline-block;
+}
+
+#outer
+{
+    width:100%;
+    text-align: center;
+}
