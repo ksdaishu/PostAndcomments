@@ -8,8 +8,12 @@
 
 <div class="outer">
     <%= form.submit  class: 'btn btn-primary'%>
-  	<%= link_to 'Back', posts_path , class: 'btn btn-primary inlineblock'%>
-  	<!--%= link_to 'Back', post_path(@post), class: 'btn btn-primary inlineblock' %-->
+    <% unless post.id.nil? %>
+    	<%= link_to 'Back', post_path(@post), class: 'btn btn-primary inlineblock' %>
+    <% else %>
+  		<%= link_to 'Back', posts_path , class: 'btn btn-primary inlineblock'%>
+  	<% end %>
+  	
 </div>
  <div>
  </div>
